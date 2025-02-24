@@ -1,0 +1,30 @@
+.loginPage {
+    background: #F6F6FA;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 12px 0px #00000014;
+    gap: 20px;
+    width: 40vw;
+}
+
+.loginInput {
+    background: #F6F6FA;
+    border-radius: 16px;
+    padding: 10px;
+    font-size: 32px;
+    color: #757575;
+    font-weight: 500;
+    border: 1px solid #A0A0A0;
+}

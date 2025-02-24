@@ -1,0 +1,13 @@
+.notFoundBtn {
+    background: linear-gradient(222.4deg, #FF7700 6.42%, #E10CFF 93.77%);
+    border-radius: 100px;
+    padding: 10px 16px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #A0A0A0;
+    cursor: pointer;
+}

@@ -1,0 +1,62 @@
+.header {
+    background: #fff;
+    box-shadow: 0px 4px 12px 0px #00000014;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    height: 80px;
+    margin-top: 30px;
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 160px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #757575;
+    font-size: 18px;
+    transition: all 0.2s ease-in-out;
+}
+
+.navLink:hover {
+    transform: scale(1.1);
+}
+
+.navLink.active {
+    background: linear-gradient(190deg, #FF7700 50%, #E10CFF 80%);
+    -webkit-background-clip: text; /* Для Webkit-браузеров (Chrome, Safari) */
+    background-clip: text; /* Стандартный CSS */
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.profileInfoHeader {
+    display: flex;
+    align-items: center;
+    color: #757575;
+    font-size: 18px;
+    gap: 12px;
+}
+
+.plug {
+    background: #757575;
+    width: 36px;
+    height: 36px;
+    border-radius: 50px;
+}

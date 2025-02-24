@@ -1,0 +1,32 @@
+.notFoundPage {
+    position: absolute;
+    background: #F6F6FA;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    overflow: hidden;
+}
+
+.notFoundLogo {
+    width: 25vw;
+}
+
+.notFoundPage h1 {
+    background: linear-gradient(190deg, #FF7700 50%, #E10CFF 80%);
+    -webkit-background-clip: text; /* Для Webkit-браузеров (Chrome, Safari) */
+    background-clip: text; /* Стандартный CSS */
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    font-size: 3vw;
+}
+
+.notFoundText {
+    color: #757575;
+    font-size: 1.5vw;
+}
