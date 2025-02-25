@@ -1,0 +1,181 @@
+.calendar-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.calendar-modal {
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0px 4px 12px 0px #00000014;
+    padding: 30px;
+    width: 70%;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #A0A0A0;
+}
+
+.range-button {
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 16px;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.range-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.calendar-body {
+    display: flex;
+    gap: 20px;
+    padding-top: 30px;
+}
+
+.month {
+    flex: 1;
+}
+
+.changeMonth {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.changeMonth h3 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.switchMonthBtn {
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+}
+
+.switchMonthBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0, 0.4);
+    width: 24px;
+    height: 24px;
+    z-index: 1001;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-top: 30px;
+}
+
+.days-grid p {
+    background: #F6F6FA;
+    padding: 10px 0;
+    color: #757575;
+    font-size: 14px;
+}
+
+.day {
+    padding: 16px;
+    border-radius: 16px;
+    font-size: 20px;
+    color: #2B2B2A;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+
+.separator {
+    width: 1px;
+    background-color: #A0A0A0;
+}
+
+.calendar-footer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.leftSideCalendarFooter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 40%;
+    justify-content: center;
+}
+
+.leftSideCalendarFooter p {
+    color: #757575;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.selectedDate {
+    border: 1px solid #A0A0A0;
+    border-radius: 16px;
+    padding: 14px 20px;
+    width: 100%;
+    text-align: center;
+    color: #2B2B2A;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 17px;
+}
+
+.rightSideCalendarFooter {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    gap: 10px;
+}
+
+/* Существующие стили остаются без изменений */
+
+.day.selected {
+    background: linear-gradient(222.4deg, #FF7700 6.42%, #E10CFF 93.77%);
+    color: white;
+    font-weight: 700;
+}
+
+.day.firstDay {
+    background: linear-gradient(222.4deg, #FF7700 6.42%, #E10CFF 93.77%);
+    color: white;
+    border-radius: 16px 0 0 16px;
+}
+
+.day.lastDay {
+    background: linear-gradient(222.4deg, #FF7700 6.42%, #E10CFF 93.77%);
+    color: white;
+    border-radius: 0 16px 16px 0;
+}
+
+.day.range {
+    background: linear-gradient(222.4deg, #FFEAD7 6.42%, #FBDFFF 93.77%);
+    color: #2B2B2A;
+    border-radius: 0;
+}
+
+.day:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.day.empty {
+    pointer-events: none;
+    background-color: transparent;
+  }

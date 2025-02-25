@@ -1,16 +1,25 @@
 import React from 'react'
 import './NotFound.css'
-import BNF from '../../Components/Buttons/ButtonNotFound/BNF'
+import { useNavigate } from 'react-router-dom'
 
-import logo from '../../Assets/svg/logo.svg'
+import Button from '../../Components/Buttons/Button'
+
+import not_found from '../../Assets/svg/404.svg'
 
 export default function NotFound() {
+  const navigate = useNavigate()
   return (
     <div className='notFoundPage'>
-        <img src={logo} alt="Логотип FastPay 404 Not Found" className='notFoundLogo'/>
-        <h1>Страница не найдена!</h1>
-        <p className='notFoundText'>Может вернемся пока не поздно?</p>
-        <BNF />
+        <div className="notFoundContainer">
+          <img src={not_found} alt="Логотип FastPay 404 Not Found" className='notFoundSvg'/>
+          <div className="notFoundMainText">
+            <h1>Упс! Страница не найдена</h1>
+            <p className='notFoundText'>К сожалению, запрашиваемая вами страница не существует. Возможно, она была удалена, перемещена или вы ввели неверный адрес.</p>
+          </div>
+          <Button type={'colored'} rl={16} onClick={() => navigate('/')}>
+            <p style={{fontSize: '1.5vw'}}>На главную страницу</p>
+          </Button>
+        </div>
     </div>
   )
 }

@@ -20,5 +20,6 @@ api.interceptors.response.use(
 // Функции для запросов
 export const getUserData = () => api.get('/users');
 export const postTransaction = (data) => api.post('/transactions', data);
+export const loginUser = () => api.post('/login');
 
 export default api;

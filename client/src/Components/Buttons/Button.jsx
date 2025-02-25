@@ -1,18 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Button.css'
+import Loader from '../Loader/Loader'
 
-export default function Button({ type, children, style: propStyle, onClick, tb = 10, rl = 10, }) {
-    const fullStyle = {
-        ...propStyle,
-        padding: `${tb}px ${rl}px`
+export default function Button({ type, children, style: propStyle, className, onClick, tb = 10, rl = 10, }) {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleClick = async () => {
+    if (onClick) {
+      setIsLoading(true); 
+      try {
+        await onClick(); 
+      } catch (err) {
+        console.error('Ошибка:', err);
+      } finally {
+        setIsLoading(false); 
+      }
     }
+  };
+
+  const fullStyle = {
+    ...propStyle,
+    padding: `${tb}px ${rl}px`
+  }
   return (
+    <>
     <button
-        onClick={onClick}
-        style={fullStyle}
-        className={`standarts ${type === 'colored' ? 'colored' : type === 'white' ? 'white' : ''}`}
+      id='button-target'
+      onClick={handleClick}
+      style={fullStyle}
+      className={`standarts ${type === 'colored' ? 'colored' : type === 'white' ? 'white' : ''} ${className}`}
     >
-        {children}
+      {children}
     </button>
+    <Loader isLoading={isLoading} targetId="button-target" />
+    </>
   )
 }

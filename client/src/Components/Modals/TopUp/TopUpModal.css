@@ -1,0 +1,172 @@
+.topUpOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topUpModal {
+    background: #fff;
+    box-shadow: 0px 4px 12px 0px #00000014;
+    padding: 40px 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 50%;
+}
+
+.topUpTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.topUpTitle h1 {
+    color: #2B2B2A;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.topUpTitle p {
+    color: #757575;
+    font-size: 24px;
+    line-height: 25px;
+}
+
+.wallet {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.topUpText {
+    color: #2B2B2A;
+    font-size: 24px;
+    line-height: 26px;
+}
+
+.valueContainer {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #A0A0A0;
+    background: #F6F6FA;
+    border-radius: 16px;
+    padding: 15px 20px;
+    align-items: center;
+}
+
+.valueText {
+    color: #757575;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 17px;
+}
+
+.copyNotification {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 12px 0px #00000014;
+    padding: 20px 20px;
+    z-index: 2;
+    border-radius: 16px;
+    /* transform: translateX(100px); */
+    animation: changeX 3s forwards;
+}
+
+@keyframes changeX {
+    0% {
+        transform: translateX(400px);
+    }
+
+    25% {
+        transform: translateX(-30px);
+    }
+
+    50% {
+        transform: translateX(-30px);
+    }
+
+    90% {
+        transform: translateX(-30px);
+    }
+
+    100% {
+        transform: translateX(400px);
+    }
+}
+
+.copyNotification p {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 17px;
+    background: linear-gradient(190deg, #FF7700 50%, #E10CFF 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.copyIconWrapper {
+    position: relative;
+    display: inline-block;
+    height: 24px;
+}
+
+.copyIconWrapper::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: linear-gradient(190deg, #FF7700 50%, #E10CFF 80%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.copyIconWrapper:hover::before {
+    width: 40px;
+    height: 40px;
+}
+
+.copyIconWrapper.clicked::before {
+    width: 48px;
+    height: 48px;
+}
+
+.sumForTopUp {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+.qrContainer {
+    display: flex;
+    border: 1px solid #A0A0A0;
+    padding: 20px;
+    border-radius: 16px;
+    width: fit-content;
+}
+
+.topUpTextWarning {
+    font-size: 14px;
+    color: #757575;
+    line-height: 17px;
+}
+
+.topUpButtons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

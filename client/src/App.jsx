@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import './App.css'
 
 import Login from './Pages/Login/Login';
 import Header from './Components/Header/Header';
@@ -7,7 +8,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <div className="App">
      {isAuthenticated && <Header />}
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -38,6 +40,7 @@ function App() {
             <Route path="/statistics" element={<PrivateRoute><NotFound /></PrivateRoute>} />
             <Route path="*" element={<PrivateRoute><NotFound /></PrivateRoute>} />
       </Routes>
+      </div>
     </BrowserRouter>
   );
 }
