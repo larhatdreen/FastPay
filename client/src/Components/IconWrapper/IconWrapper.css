@@ -1,0 +1,41 @@
+.iconWrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .iconWrapper::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: linear-gradient(190deg, #FF7700 50%, #E10CFF 80%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+  }
+  
+  .iconWrapper:hover::before {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .iconWrapper.clicked::before {
+    width: 48px;
+    height: 48px;
+  }
+
+  .iconWrapper img {
+    transition: all 0.3s ease;
+  }
+
+  .iconWrapper:hover img {
+    filter: brightness(0) invert(1); 
+  }
+
+  .iconWrapper.clicked img {
+    transform: scale(0.9);
+  }
+
+  

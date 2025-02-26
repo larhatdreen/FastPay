@@ -4,6 +4,8 @@ import './Dashboard.css'
 import Button from '../../Components/Buttons/Button'
 import CalendarModal from '../../Components/Modals/Calendar/CalendarModal'
 import TopUpModal from '../../Components/Modals/TopUp/TopUpModal'
+import PayinAndPayout from '../../Components/Payin&Payout/PayinAndPayout'
+import Balance from '../../Components/Balance/Balance'
 
 import topUp from '../../Assets/svg/topUp.svg'
 import withdraw from '../../Assets/svg/withdraw.svg'
@@ -67,9 +69,13 @@ export default function Dashboard() {
             <p style={{ color: '#2B2B2A', fontWeight: showCalendar ? '700' : '400' }}>{date}</p>
           </Button>
         </div>
+        <div className="payInOut">
+          <PayinAndPayout name={'Payin'} data={''} />
+          <PayinAndPayout name={'Payout'} data={''} />
+        </div>
       </div>
       <div className="rightSideDashboard">
-
+        <Balance />
       </div>
     </div>
   )

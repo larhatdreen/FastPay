@@ -1,0 +1,121 @@
+.balanceContainer {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 530px;
+}
+
+.balanceRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #A0A0A0;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.balanceRow p {
+    font-size: 24px;
+    color: #757575;
+    line-height: 17px;
+}
+
+.balanceRow h2 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 23px;
+    background: linear-gradient(190deg, #FF7700 50%, #E10CFF 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.balanceRow:first-child {
+    padding-top: 0;
+}
+
+.balanceRow:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.balanceDeposite {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tooltip {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #F6F6FA;
+    border-radius: 10px;
+    border: 1px solid #A0A0A0;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 3;
+}
+
+.tooltip p {
+    font-size: 12px;
+    line-height: 9px;
+    color: #757575;
+}
+
+.tooltip h3 {
+    font-size: 16px;
+    line-height: 12px;
+    color: #2B2B2A;
+}
+
+.tooltip-visible {
+    opacity: 1;
+    pointer-events: auto;
+    animation: fadeInOut 3s forwards ease-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.triangle {
+    position: absolute;
+    top: 21px; 
+    right: -8px; 
+    width: 14px;
+    height: 17px;
+    background: #F6F6FA;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+    z-index: 0;
+}
+
+.triangleGrey {
+    position: absolute;
+    top: 23.5px; 
+    right: -10px; 
+    width: 10px;
+    height: 12px;
+    background: #A0A0A0;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+    z-index: -1;
+}

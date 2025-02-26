@@ -1,0 +1,118 @@
+.ppContainer {
+    background: #fff;
+    box-shadow: 0px 4px 12px 0px #00000014;
+    padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.ppTitle {
+    color: #2B2B2A;
+    line-height: 30px;
+    font-weight: 600;
+    font-size: 42px;
+}
+
+.dataCollection {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.topDataCollection, .botDataCollection {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.leftSideDataCollection {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.dataContainer {
+    border: 1px solid #a0a0a0;
+    border-radius: 16px;
+    padding: 25px;
+    width: 100%;
+}
+
+.dataContainer h3 {
+    background: linear-gradient(190deg, #FF7700 50%, #E10CFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 26px;
+}
+
+.dataContainer p {
+    color: #757575;
+    font-size: 24px;
+    line-height: 17px;
+    text-wrap: nowrap;
+}
+
+.topData {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.botData {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.botData p {
+    font-size: 18px;
+}
+
+.botDataText {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.botDataText h3 {
+    font-size: 18px;
+    line-height: 13px;
+}
+
+.smallData {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media screen and (max-width: 1165px) {
+    .topData {
+        gap: 20px;
+    }
+    .botData {
+        gap: 12px;
+    }
+    .topDataCollection, .botDataCollection {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 728px) {
+    .leftSideDataCollection {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 578px) {
+    .dataContainer p {
+        text-wrap: wrap;
+    }
+}
