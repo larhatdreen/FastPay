@@ -93,6 +93,13 @@
     gap: 20px;
 }
 
+@media screen and (max-width: 1774px) {
+    .rightSideDashboard {
+        flex-direction: row;
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 1165px) {
     .topData {
         gap: 20px;
@@ -103,11 +110,48 @@
     .topDataCollection, .botDataCollection {
         flex-wrap: wrap;
     }
+    .rightSideDashboard {
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 728px) {
     .leftSideDataCollection {
         flex-wrap: wrap;
+    }
+    .ppContainer {
+        padding: 24px;
+        gap: 18px;
+    }
+    .ppTitle {
+        font-size: 32px;
+    }
+    .dataContainer {
+        padding: 20px;
+    }
+    .dataContainer h3 {
+        font-size: 24px;
+    }
+    .dataContainer p {
+        font-size: 18px;
+    }
+    .botData {
+        gap: 12px;
+    }
+    .botData p {
+        font-size: 14px;
+    }
+    .botDataText h3 {
+        font-size: 14px;
+    }
+    .smallData {
+        gap: 12px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .topDataCollection, .botDataCollection {
+        gap: 4px;
     }
 }
 

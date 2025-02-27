@@ -11,7 +11,7 @@ import topUp from '../../Assets/svg/topUp.svg'
 import withdraw from '../../Assets/svg/withdraw.svg'
 import calendar from '../../Assets/svg/calendar.svg'
 
-export default function Dashboard() {
+export default function Dashboard({ windowWidth }) {
   // Модальное окно календаря
   const [showCalendar, setShowCalendar] = useState(false);
   const [date, setDate] = useState('Все время')
@@ -46,20 +46,32 @@ export default function Dashboard() {
   return (
     <div className='dashboard'>
       {showCalendar && <CalendarModal onClose={handleCalendarClick} onApply={handleCalendarApply} />}
-      {showTopUp && <TopUpModal onClose={handleTopUpClick} />}
+      {showTopUp && <TopUpModal windowWidth={windowWidth} onClose={handleTopUpClick} />}
       <div className="leftSideDashboard">
         <div className="buttonsDashboard">
-          <Button type={'white'} style={{ width: 'auto' }} rl={16} onClick={handleTopUpClick}>
-            <img src={topUp} alt="Иконка пополнения" />
-            <p style={{ color: '#2B2B2A', fontWeight: '400' }}>Пополнить</p>
-          </Button>
-          <Button type={'white'} style={{ width: 'auto' }} rl={16} onClick={''}>
-            <img src={withdraw} alt="Иконка Вывода" />
-            <p style={{ color: '#2B2B2A', fontWeight: '400' }}>Вывести</p>
-          </Button>
+          <div className="buttonsCollective">
+            <Button
+              type={'white'}
+              style={{ width: `${windowWidth <= 650 ? '100%' : 'auto'}` }}
+              rl={16}
+              onClick={handleTopUpClick}
+            >
+              <img src={topUp} alt="Иконка пополнения" />
+              <p style={{ color: '#2B2B2A', fontWeight: '400' }}>Пополнить</p>
+            </Button>
+            <Button
+              type={'white'}
+              style={{ width: `${windowWidth <= 650 ? '100%' : 'auto'}` }}
+              rl={16}
+              onClick={''}
+            >
+              <img src={withdraw} alt="Иконка Вывода" />
+              <p style={{ color: '#2B2B2A', fontWeight: '400' }}>Вывести</p>
+            </Button>
+          </div>
           <Button
             type={'white'}
-            style={{ width: 'auto' }}
+            style={{ width: `${windowWidth <= 650 ? '100%' : 'auto'}` }}
             className={showCalendar && 'coloredBorder'}
             tb={showCalendar ? 9 : 10}
             rl={showCalendar ? 15 : 16}
@@ -75,6 +87,7 @@ export default function Dashboard() {
         </div>
       </div>
       <div className="rightSideDashboard">
+        <Balance />
         <Balance />
       </div>
     </div>

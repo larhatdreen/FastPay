@@ -56,3 +56,10 @@
     background: linear-gradient(190deg, #FF7700 50%, #E10CFF 80%);
     z-index: -1;
 }
+
+@media screen and (max-width: 370px) {
+    .standarts {
+        font-size: 12px;
+        gap: 4px;
+    }
+}

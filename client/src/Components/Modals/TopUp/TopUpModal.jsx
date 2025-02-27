@@ -10,7 +10,7 @@ import copy from '../../../Assets/svg/copy.svg';
 import topUp from '../../../Assets/svg/topUpWhite.svg';
 import close from '../../../Assets/svg/closeCircle.svg';
 
-export default function TopUpModal({ onClose }) {
+export default function TopUpModal({ onClose, windowWidth }) {
     const [showCopy, setShowCopy] = useState(false);
     const [noticeText, setNoticeText] = useState('')
     const wallet_address = 'TCNiNL66duACHpZtZPpooW1wfavWNBXzxx';
@@ -84,11 +84,11 @@ export default function TopUpModal({ onClose }) {
                 </div>
                 <p className="topUpTextWarning">Данный адрес предназначен только для переводов Tether в сети TRC20. При пополнении депозита с некорректным идентификатором площадка не несет финансовой ответственности за депозит. Настоятельно рекомендуем внимательно проверять идентификатор перед отправкой депозита на площадку</p>
                 <div className="topUpButtons">
-                    <Button type="colored" onClick={onClose}>
+                    <Button type="colored" onClick={onClose} rl={windowWidth <= 370 ? 12 : 16} tb={windowWidth <= 370 ? 6 : windowWidth <= 780 ? 8 : 10} >
                         <img src={topUp} alt="Иконка подтверждения пополнения" />
                         <p>Пополнить</p>
                     </Button>
-                    <Button type="white" onClick={onClose}>
+                    <Button type="white" onClick={onClose} rl={windowWidth <= 370 ? 12 : 16} tb={windowWidth <= 370 ? 6 : windowWidth <= 780 ? 8 : 10}>
                         <img src={close} alt="Иконка отмены пополнения" />
                         <p>Отмена</p>
                     </Button>

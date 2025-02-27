@@ -23,10 +23,30 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+}
+
+.buttonsCollective {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* width: 100%; */
 }
 
 .payInOut {
     display: flex;
     gap: 20px;
     flex-direction: column;
+}
+
+@media screen and (max-width: 650px) {
+    .buttonsDashboard {
+        justify-content: center;
+        gap: 8px;
+    }
+    .buttonsCollective {
+        width: 100%;
+        gap: 8px;
+    }
 }

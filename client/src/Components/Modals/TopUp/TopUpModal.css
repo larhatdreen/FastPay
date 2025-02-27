@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    max-width: 50%;
+    width: 60vw;
 }
 
 .topUpTitle {
@@ -69,51 +69,6 @@
     line-height: 17px;
 }
 
-.copyNotification {
-    position: absolute;
-    top: 40px;
-    right: 20px;
-    background: #fff;
-    box-shadow: 0px 4px 12px 0px #00000014;
-    padding: 20px 20px;
-    z-index: 2;
-    border-radius: 16px;
-    /* transform: translateX(100px); */
-    animation: changeX 3s forwards;
-}
-
-@keyframes changeX {
-    0% {
-        transform: translateX(400px);
-    }
-
-    25% {
-        transform: translateX(-30px);
-    }
-
-    50% {
-        transform: translateX(-30px);
-    }
-
-    90% {
-        transform: translateX(-30px);
-    }
-
-    100% {
-        transform: translateX(400px);
-    }
-}
-
-.copyNotification p {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 17px;
-    background: linear-gradient(190deg, #FF7700 50%, #E10CFF 80%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .sumForTopUp {
     display: flex;
     flex-direction: column;
@@ -140,4 +95,89 @@
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+    .topUpModal {
+        padding: 30px;
+        gap: 25px;
+    }
+    .topUpTitle {
+        gap: 15px;
+    }
+    .topUpTitle h1 {
+        font-size: 32px;
+    }
+    .topUpTitle p {
+        font-size: 18px;
+    }
+    .wallet {
+        gap: 15px;
+    }
+    .topUpText {
+        font-size: 18px;
+    }
+    .valueText {
+        font-size: 18px;
+    }
+    .sumForTopUp {
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .topUpModal {
+        gap: 8px;
+        border-radius: 10px;
+        width: 80vw;
+    }
+    .topUpTitle {
+        gap: 2px;
+    }
+    .topUpTitle h1 {
+        font-size: 24px;
+    }
+    .topUpTitle p {
+        font-size: 14px;
+    }
+    .wallet {
+        gap: 2px;
+    }
+    .topUpText {
+        font-size: 14px;
+    }
+    .valueText {
+        font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .sumForTopUp {
+        gap: 2px;
+    }
+    .valueContainer {
+        padding: 12px 16px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .topUpModal {
+        position: absolute;
+        top: 10px;
+    }
+}
+
+@media screen and (max-width: 578px) {
+    .topUpTextWarning {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .topUpOverlay {
+        overflow: auto;
+    }
+    .topUpModal {
+        top: 0;
+    }
 }
