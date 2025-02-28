@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/FastPay/static/css/main.b9e2da96.css",
-    "main.js": "/FastPay/static/js/main.b21944e4.js",
-    "static/js/453.419a5d54.chunk.js": "/FastPay/static/js/453.419a5d54.chunk.js",
+    "main.css": "/FastPay/static/css/main.16e15856.css",
+    "main.js": "/FastPay/static/js/main.96c0a714.js",
+    "static/js/453.258b012d.chunk.js": "/FastPay/static/js/453.258b012d.chunk.js",
     "static/media/logo.svg": "/FastPay/static/media/logo.e984f8864b42de6ab246b3002d687a04.svg",
     "static/media/calendar.svg": "/FastPay/static/media/calendar.10d9a53ae912e6299d29a444a9c8ec92.svg",
+    "static/media/calendarGrey.svg": "/FastPay/static/media/calendarGrey.e7ec3b23bbfd27f2c1d877a4a2ec2c77.svg",
     "static/media/profitColor.svg": "/FastPay/static/media/profitColor.b0d7a7237b78dfd01cdc.svg",
     "static/media/profit.svg": "/FastPay/static/media/profit.e79cfb649f2bd6c4816f.svg",
     "static/media/edit.svg": "/FastPay/static/media/edit.4e59dcf585f122de21a6565c89d75618.svg",
@@ -26,10 +27,12 @@
     "static/media/detailsColor.svg": "/FastPay/static/media/detailsColor.5adfbfcbe81e5d8adf8d.svg",
     "static/media/burgerMenu.svg": "/FastPay/static/media/burgerMenu.2d358bd9259bc8dc2f2a8724d755d324.svg",
     "static/media/burgerMenuClose.svg": "/FastPay/static/media/burgerMenuClose.14da56e64b98338aebc616c497da8965.svg",
+    "static/media/profile.svg": "/FastPay/static/media/profile.44f87c5d19d33f35ee90f80323becf0c.svg",
     "static/media/details.svg": "/FastPay/static/media/details.3644848245b3bece2e25.svg",
     "static/media/closeCircle.svg": "/FastPay/static/media/closeCircle.3fe882d1f75fde32aeff4e69b78b9708.svg",
     "static/media/withdraw.svg": "/FastPay/static/media/withdraw.23ddaa6c1a2fe7d969739e9928f3bfd7.svg",
     "static/media/pause.svg": "/FastPay/static/media/pause.391cfb0ba9748cba7ab3081b2535b307.svg",
+    "static/media/arrowChange.svg": "/FastPay/static/media/arrowChange.e4bb3d6925455d0411684e9fd7f9a0a8.svg",
     "static/media/switchMonthRight.svg": "/FastPay/static/media/switchMonthRight.8ea9bc894b4bcc64ac8983bbe49d5ebb.svg",
     "static/media/switchMonthLeft.svg": "/FastPay/static/media/switchMonthLeft.ff8b4c34fa62efbe02e860e7d369e73d.svg",
     "static/media/resume.svg": "/FastPay/static/media/resume.40142120ebd489eef84ded25fbe2e872.svg",
@@ -38,12 +41,12 @@
     "static/media/applications.svg": "/FastPay/static/media/applications.a834671526fd4f747a48.svg",
     "static/media/topUpWhite.svg": "/FastPay/static/media/topUpWhite.025d72b279987df6ccf8083b85c20e01.svg",
     "index.html": "/FastPay/index.html",
-    "main.b9e2da96.css.map": "/FastPay/static/css/main.b9e2da96.css.map",
-    "main.b21944e4.js.map": "/FastPay/static/js/main.b21944e4.js.map",
-    "453.419a5d54.chunk.js.map": "/FastPay/static/js/453.419a5d54.chunk.js.map"
+    "main.16e15856.css.map": "/FastPay/static/css/main.16e15856.css.map",
+    "main.96c0a714.js.map": "/FastPay/static/js/main.96c0a714.js.map",
+    "453.258b012d.chunk.js.map": "/FastPay/static/js/453.258b012d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9e2da96.css",
-    "static/js/main.b21944e4.js"
+    "static/css/main.16e15856.css",
+    "static/js/main.96c0a714.js"
   ]
 }
