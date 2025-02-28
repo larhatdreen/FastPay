@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Button.css'
 import Loader from '../Loader/Loader'
 
-export default function Button({ type, children, style: propStyle, className, onClick, tb = 10, rl = 10, }) {
-  const [isLoading, setIsLoading] = useState(false);
+export default function Button({ type, children, style: propStyle, className, onClick, tb = 10, rl = 10, isLoading }) {
+  // const [isLoading, setIsLoading] = useState(false);
 
-  const handleClick = async () => {
-    if (onClick) {
-      setIsLoading(true); 
-      try {
-        await onClick(); 
-      } catch (err) {
-        console.error('Ошибка:', err);
-      } finally {
-        setIsLoading(false); 
-      }
-    }
-  };
+  // const handleClick = async () => {
+  //   if (onClick) {
+  //     setIsLoading(true); 
+  //     try {
+  //       await onClick(); 
+  //     } catch (err) {
+  //       console.error('Ошибка:', err);
+  //     } finally {
+  //       setIsLoading(false); 
+  //     }
+  //   }
+  // };
 
   const fullStyle = {
     ...propStyle,
@@ -26,7 +26,7 @@ export default function Button({ type, children, style: propStyle, className, on
     <>
     <button
       id='button-target'
-      onClick={handleClick}
+      onClick={onClick}
       style={fullStyle}
       className={`standarts ${type === 'colored' ? 'colored' : type === 'white' ? 'white' : ''} ${className}`}
     >

@@ -7,7 +7,7 @@ import Button from '../../Components/Buttons/Button'
 
 import calendar from '../../Assets/svg/calendarGrey.svg'
 
-export default function Finance() {
+export default function Profit() {
     const data = [
         { транзакция: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
         { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
@@ -51,7 +51,7 @@ export default function Finance() {
                 <p>Выберите даты</p>
             </Button>
             <Table
-                title={'Финансы'}
+                title={'Прибыль'}
                 columns={columns}
                 data={data}
                 onRowClick={true}

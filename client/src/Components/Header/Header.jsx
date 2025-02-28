@@ -5,6 +5,7 @@ import permissions from '../../API/permissions.json';
 import icons from '../../utils/navIcons.js';
 
 import logo from '../../Assets/svg/logo.svg';
+import profile from '../../Assets/svg/profile.svg'
 import burgerOpen from '../../Assets/svg/burgerMenu.svg';
 import burgerClose from '../../Assets/svg/burgerMenuClose.svg';
 
@@ -101,10 +102,10 @@ const Header = ({ windowWidth }) => {
         )}
         <div className="rightSideHeader">
           {windowWidth > 576 && (
-            <div className="profileInfoHeader">
-              <p>{windowWidth <= 1600 ? 'Профиль' : 'user_name'}</p>
-              <div className="plug" aria-hidden="true"></div>
-            </div>
+            <Link className="profileInfoHeader" to='/profile'>
+              <p>Профиль</p>
+              <img src={profile} alt="Иконка профиля в хедере" />
+            </Link>
           )}
           {windowWidth < 1750 && (
             <BurgerIcon isOpen={open} onClick={toggleMenu} />

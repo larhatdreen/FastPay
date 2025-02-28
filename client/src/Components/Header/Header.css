@@ -82,13 +82,7 @@
     color: #757575;
     font-size: 18px;
     gap: 12px;
-}
-
-.plug {
-    background: #757575;
-    width: 36px;
-    height: 36px;
-    border-radius: 50px;
+    text-decoration: none;
 }
 
 .burgerIconContainer {

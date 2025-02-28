@@ -1,0 +1,116 @@
+.progilePage {
+    display: flex;
+    gap: 20px;
+}
+
+.progilePage span, .progilePage h3 {
+    background: linear-gradient(190deg, #FF7700 50%, #E10CFF 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.progilePage h2 {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 17px;
+    color: #2b2b2a;
+}
+
+.progilePage p {
+    font-size: 18px;
+    line-height: 13px;
+    color: #757575;
+}
+
+.mainInfo, .optionInfo {
+    box-shadow: 0px 4px 12px 0px #00000014;
+    background: #fff;
+    padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.mainInfo h1 {
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 30px;
+    color: #2b2b2a;
+}
+
+.profileContainers {
+    display: flex;
+    gap: 5px;
+}
+
+.ID, .rate  {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border: 1px solid #A0A0A0;
+    border-radius: 16px;
+    padding: 25px;
+}
+
+.ID span {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 13px;
+}
+
+.ID {
+    width: fit-content;
+}
+
+.rate {
+    width: 100%;
+}
+
+.rateOut {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rateOut h3 {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.rateIn {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.payFlex {
+    display: flex;
+    gap: 10px;
+}
+
+.timeChrono {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.timeChrono img {
+    cursor: pointer;
+}
+
+.timeChrono img:hover {
+    animation: rolling 0.3s forwards;
+}
+
+@keyframes rolling {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+

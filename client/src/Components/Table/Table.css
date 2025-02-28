@@ -3,17 +3,23 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 12px 0px #00000014;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.universal-table h1 {
+    color: #2B2B2A;
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 30px;
+    padding-bottom: 10px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-}
-
-td {
-    text-align: left;
-    border-bottom: 1px solid #A0A0A0;
-    border-top: 1px solid #A0A0A0;
 }
 
 th {
@@ -22,6 +28,16 @@ th {
     color: #757575;
     font-weight: 400;
     text-align: left;
+}
+
+tbody tr {
+    text-align: left;
+    border-bottom: 1px solid #A0A0A0;
+    border-top: 1px solid #A0A0A0;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
 }
 
 .row {
@@ -59,6 +75,7 @@ th {
     font-size: 18px;
     line-height: 13px;
     color: #757575;
+    cursor: pointer;
 }
 
 .pagination button.active {

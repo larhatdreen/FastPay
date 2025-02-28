@@ -42,6 +42,15 @@
     -webkit-text-fill-color: transparent;
 }
 
+.forPages p {
+    background: none;
+    color: #2B2B2A;
+    -webkit-background-clip: inherit;
+    background-clip: inherit; 
+    -webkit-text-fill-color: inherit;
+    font-weight: 400;
+}
+
 .coloredBorder {
     border: none;
 }
