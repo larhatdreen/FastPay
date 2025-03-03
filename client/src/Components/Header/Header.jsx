@@ -4,12 +4,13 @@ import { Link, useLocation } from 'react-router-dom';
 import permissions from '../../API/permissions.json';
 import icons from '../../utils/navIcons.js';
 
+import IconWrapper from '../IconWrapper/IconWrapper.jsx';
+
 import logo from '../../Assets/svg/logo.svg';
 import profile from '../../Assets/svg/profile.svg'
 import burgerOpen from '../../Assets/svg/burgerMenu.svg';
 import burgerClose from '../../Assets/svg/burgerMenuClose.svg';
 
-const userType = 'admin';
 
 const BurgerIcon = ({ isOpen, onClick }) => {
   return (
@@ -30,10 +31,18 @@ const BurgerIcon = ({ isOpen, onClick }) => {
 };
 
 const Header = ({ windowWidth }) => {
+  const userType = 'admin';
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const [isAnimated, setIsAnimated] = useState(false);
-  const availableLinks = useMemo(() => permissions[userType]?.links || [], []);
+  const availableLinks = useMemo(() => {
+    const links = permissions[userType]?.links || [];
+
+    return windowWidth >= 577
+        ? links.filter(link => link.key !== 'profile') // Исключаем профиль
+        : links; // Оставляем как есть
+
+  }, [userType, windowWidth]);
 
   const headerRef = useRef(null);
   const navRef = useRef(null);
@@ -103,8 +112,10 @@ const Header = ({ windowWidth }) => {
         <div className="rightSideHeader">
           {windowWidth > 576 && (
             <Link className="profileInfoHeader" to='/profile'>
-              <p>Профиль</p>
-              <img src={profile} alt="Иконка профиля в хедере" />
+              <p className={location.pathname === '/profile' ? 'active' : ''}>Профиль</p>
+              <IconWrapper height='36px'>
+                <img src={profile} alt="Иконка профиля в хедере" />
+              </IconWrapper>
             </Link>
           )}
           {windowWidth < 1750 && (

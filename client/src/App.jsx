@@ -52,7 +52,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
             <Route path="/dashboard" element={<PrivateRoute><Dashboard windowWidth={windowWidth} /></PrivateRoute>} />
-            <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
+            <Route path="/profile" element={<PrivateRoute><Profile windowWidth={windowWidth} /></PrivateRoute>} />
             <Route path="/finance" element={<PrivateRoute><Finance /></PrivateRoute>} />
             <Route path="/transactions" element={<PrivateRoute><Transactions /></PrivateRoute>} />
             <Route path="/applications" element={<PrivateRoute><Applications /></PrivateRoute>} />
@@ -62,7 +62,7 @@ function App() {
             <Route path="/merchants" element={<PrivateRoute><Merchants /></PrivateRoute>} />
             <Route path="/profit" element={<PrivateRoute><Profit /></PrivateRoute>} />
             <Route path="/statistics" element={<PrivateRoute><Statistics /></PrivateRoute>} />
-            <Route path="*" element={<PrivateRoute><NotFound setShowHeader={setShowHeader} /></PrivateRoute>} />
+            <Route path="*" element={<PrivateRoute><NotFound windowWidth={windowWidth} setShowHeader={setShowHeader} /></PrivateRoute>} />
       </Routes>
       </div>
     </BrowserRouter>

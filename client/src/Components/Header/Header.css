@@ -36,6 +36,11 @@
 .logoLink {
     display: flex;
     align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.logoLink:hover {
+    transform: scale(1.1);
 }
 
 .logo {
@@ -70,6 +75,7 @@
     font-weight: 700;
 }
 
+
 .rightSideHeader {
     display: flex;
     align-items: center;
@@ -83,6 +89,19 @@
     font-size: 18px;
     gap: 12px;
     text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.profileInfoHeader:hover {
+    transform: scale(1.1);
+}
+
+.profileInfoHeader p.active {
+    background: linear-gradient(190deg, #FF7700 50%, #E10CFF 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
 }
 
 .burgerIconContainer {
@@ -90,6 +109,11 @@
     width: 32px;
     height: 32px;
     cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.burgerIconContainer:hover {
+    transform: scale(1.1);
 }
 
 .burgerImg {

@@ -60,12 +60,11 @@ export default function TopUpModal({ onClose, windowWidth }) {
                     <p className="topUpText">Кошелек для пополнения</p>
                     <div className="valueContainer">
                         <p className="valueText">{wallet_address}</p>
-                        <IconWrapper>
+                        <IconWrapper onClick={() => copyToClipboard(wallet_address)}>
                             <img
                                 src={copy}
-                                style={{ cursor: 'pointer', position: 'relative', zIndex: 2 }}
+                                style={{ position: 'relative', zIndex: 2 }}
                                 alt="Иконка копирования кошелька"
-                                onClick={() => copyToClipboard(wallet_address)}
                             />
                         </IconWrapper>
                     </div>

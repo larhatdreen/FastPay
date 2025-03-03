@@ -51,12 +51,11 @@ const Balance = () => {
                         </div>
                     )}
                     <p>Баланс депозита</p>
-                    <IconWrapper height='23px'>
+                    <IconWrapper height='23px' onClick={handleImageClick}>
                         <img
                             src={message}
                             alt="Иконка баланса депозита"
-                            style={{ transform: 'translate(1px, 2px)', cursor: 'pointer' }}
-                            onClick={handleImageClick}
+                            style={{ transform: 'translate(1px, 2px)'}}
                         />
                     </IconWrapper>
                 </div>

@@ -7,7 +7,8 @@
       { "key": "applications", "name": "Заявки" },
       { "key": "disputes", "name": "Споры" },
       { "key": "details", "name": "Реквизиты" },
-      { "key": "devices", "name": "Устройства" }
+      { "key": "devices", "name": "Устройства" },
+      { "key": "profile", "name": "Профиль" }
     ]
   },
   "admin": {
@@ -20,7 +21,8 @@
       { "key": "details", "name": "Реквизиты" },
       { "key": "devices", "name": "Устройства" },
       { "key": "merchants", "name": "Мерчанты" },
-      { "key": "profit", "name": "Прибыль" }
+      { "key": "profit", "name": "Прибыль" },
+      { "key": "profile", "name": "Профиль" }
     ]
   },
   "merchant": {
@@ -30,8 +32,8 @@
       { "key": "transactions", "name": "Сделки" },
       { "key": "disputes", "name": "Споры" },
       { "key": "profit", "name": "Прибыль" },
-      { "key": "statistics", "name": "Статистика" }
-
+      { "key": "statistics", "name": "Статистика" },
+      { "key": "profile", "name": "Профиль" }
     ]
   },
   "support": {
@@ -40,7 +42,8 @@
       { "key": "transactions", "name": "Сделки" },
       { "key": "disputes", "name": "Споры" },
       { "key": "details", "name": "Реквизиты" },
-      { "key": "devices", "name": "Устройства" }
+      { "key": "devices", "name": "Устройства" },
+      { "key": "profile", "name": "Профиль" }
     ]
   }
 }

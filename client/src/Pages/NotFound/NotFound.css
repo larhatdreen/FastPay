@@ -1,7 +1,8 @@
 .notFoundPage {
     position: absolute;
     background: #F6F6FA;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     left: 0;
     width: 100vw;
     height: 100vh;
@@ -17,11 +18,11 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 40%;
+    width: 720px;
 }
 
 .notFoundSvg {
-    width: 25vw;
+    width: 100%;
     padding-bottom: 3vh;
 }
 
@@ -36,10 +37,35 @@
 .notFoundPage h1 {
     color: #2B2B2A;
     font-weight: 700;
-    font-size: 2vw;
+    font-size: 42px;
 }
 
 .notFoundText {
     color: #757575;
-    font-size: 1.5vw;
+    font-size: 32px;
+}
+
+@media screen and (max-width: 1200px) {
+    .notFoundContainer {
+        width: 540px;
+    }
+    .notFoundPage h1 {
+        font-size: 32px;
+    }
+    .notFoundText {
+        color: #757575;
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .notFoundContainer {
+        width: 80%;
+    }
+    .notFoundPage h1 {
+        font-size: 24px;
+    }
+    .notFoundText {
+        color: #757575;
+        font-size: 14px;
+    }
 }

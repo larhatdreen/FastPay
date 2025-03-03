@@ -4,3 +4,15 @@
     flex-direction: column;
     gap: 30px;
 }
+
+.buttonsContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btnModal {
+    position: absolute;
+    color: #2B2B2A;
+    font-size: 16px;
+}

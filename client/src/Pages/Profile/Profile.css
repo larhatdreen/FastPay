@@ -1,6 +1,9 @@
 .progilePage {
     display: flex;
     gap: 20px;
+    padding-top: 30px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .progilePage span, .progilePage h3 {
@@ -8,6 +11,10 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.progilePage span {
+    font-size: 18px;
 }
 
 .progilePage h2 {
@@ -19,8 +26,13 @@
 
 .progilePage p {
     font-size: 18px;
-    line-height: 13px;
     color: #757575;
+}
+
+.infoContainer {
+    display: flex;
+    gap: 20px;
+    width: 100%;
 }
 
 .mainInfo, .optionInfo {
@@ -31,6 +43,20 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+.mainInfo {
+    flex: 1;
+}
+
+.optionInfo {
+    gap: 30px;
+    width: 25%;
+}
+
+.rateOut:last-child {
+    border: none;
+    padding: 0;
 }
 
 .mainInfo h1 {
@@ -57,7 +83,8 @@
 .ID span {
     font-weight: 600;
     font-size: 18px;
-    line-height: 13px;
+    word-wrap: break-word;
+    line-height: normal;
 }
 
 .ID {
@@ -72,6 +99,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #A0A0A0;
+    padding-bottom: 30px;
 }
 
 .rateOut h3 {
@@ -94,23 +123,150 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    position: relative;
 }
 
-.timeChrono img {
+.localTime {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #A0A0A0;
+    width: 17px;
+    height: 17px;
+    border-radius: 4px;
     cursor: pointer;
+    transition: all 150ms ease-in-out;
 }
 
-.timeChrono img:hover {
-    animation: rolling 0.3s forwards;
+.timeZones {
+    position: absolute;
+    top: 37.5px;
+    right: 0;
+    box-shadow: 0px 0px 20px 0px #00000026;
+    background: #fff;
+    border-radius: 16px;
+    width: 300px;
+    max-width: 300px;
+    padding: 10px 16px;
+    overflow-y: scroll;
+    transition: all 150ms ease-in-out;
+    max-height: 300px;
+    z-index: 2;
 }
 
-@keyframes rolling {
-    0% {
-        transform: rotate(0);
+.timeZoneList {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeZoneItem {
+    padding: 10px 0;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+    border-radius: 16px;
+    position: relative;
+}
+
+.timeZoneItem:hover {
+    background: rgb(0, 0, 0, 0.05);
+    padding: 10px 16px;
+    transform: scale(1.1);
+}
+
+.timeZoneItem.selected::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(222.4deg, #FF7700 6.42%, #E10CFF 93.77%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+    transition: all 150ms ease-in-out;
+}
+
+.timeZoneItem.selected:hover::before {
+    right: 10px;
+}
+
+@media screen and (max-width: 1600px) {
+    .infoContainer {
+        flex-direction: column;
     }
-    100% {
-        transform: rotate(180deg);
+    .optionInfo {
+        width: auto;
     }
 }
 
+@media screen and (max-width: 1100px) {
+    .profileContainers {
+        flex-direction: column;
+    }
+    .ID {
+        width: auto;
+    }
+    .rate {
+        width: auto;
+    }
+}
 
+@media screen and (max-width: 680px) {
+    .progilePage {
+        padding-bottom: 20px;
+    }
+    .rateOut {
+        padding-bottom: 20px;
+    }
+    .rateFlex {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .rateIn {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .rateInFlex {
+        flex-direction: row;
+        align-items: center;
+    }
+    .payFlex {
+        justify-content: space-between;
+    }
+    .rateOut h3 {
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .optionInfo h2 {
+        font-size: 14px;
+    }
+    .mainInfo, .optionInfo {
+        padding: 24px;
+        gap: 20px;
+    }
+    .mainInfo h1 {
+        font-size: 32px;
+    }
+    .ID, .rate {
+        padding: 20px;
+    }
+    .localTime p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .progilePage p, .progilePage span {
+        font-size: 14px;
+    }
+    .timeZones {
+        width: auto;
+    }
+}
