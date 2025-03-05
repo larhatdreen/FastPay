@@ -8,9 +8,9 @@ import IconWrapper from '../IconWrapper/IconWrapper.jsx';
 
 import logo from '../../Assets/svg/logo.svg';
 import profile from '../../Assets/svg/profile.svg'
+import profileColor from '../../Assets/navIcons/profileColor.svg'
 import burgerOpen from '../../Assets/svg/burgerMenu.svg';
 import burgerClose from '../../Assets/svg/burgerMenuClose.svg';
-
 
 const BurgerIcon = ({ isOpen, onClick }) => {
   return (
@@ -113,8 +113,8 @@ const Header = ({ windowWidth }) => {
           {windowWidth > 576 && (
             <Link className="profileInfoHeader" to='/profile'>
               <p className={location.pathname === '/profile' ? 'active' : ''}>Профиль</p>
-              <IconWrapper height='36px'>
-                <img src={profile} alt="Иконка профиля в хедере" />
+              <IconWrapper height={location.pathname === '/profile' ? '24px' : '36px'}>
+                <img src={location.pathname === '/profile' ? profileColor : profile} alt="Иконка профиля в хедере" />
               </IconWrapper>
             </Link>
           )}

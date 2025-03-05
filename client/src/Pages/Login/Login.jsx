@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import './Login.css';
 import { requestOfficeToken } from '../../API/api';
 import Button from '../../Components/Buttons/Button';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login({ onLogin }) {
+  const navigate = useNavigate()
   const [secretKey, setSecretKey] = useState('');
   const [code, setCode] = useState('');
   const [error, setError] = useState(null);
@@ -15,7 +17,7 @@ export default function Login({ onLogin }) {
     setError(null);
     
     try {
-      await requestOfficeToken({ secretKey, code, onLogin, setIsLoading });
+      await requestOfficeToken({ secretKey, code, onLogin, setIsLoading, navigate });
     } catch (err) {
       console.log('Полная ошибка:', err.response);
       console.log('Данные ответа сервера:', err.response?.data);

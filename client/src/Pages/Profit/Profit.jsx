@@ -50,6 +50,11 @@ export default function Profit() {
                 <img src={calendar} alt="Иконка календаря в финансах" />
                 <p>Выберите даты</p>
             </Button>
+            <div className='tableWithBtn'>
+                <Button type={'white'} style={{width: 'fit-content', position: 'absolute'}} className={'forPages'} rl={16}>
+                    <img src={calendar} alt="Иконка календаря в финансах" />
+                    <p>Выберите даты</p>
+                </Button>
             <Table
                 title={'Прибыль'}
                 columns={columns}
@@ -58,6 +63,7 @@ export default function Profit() {
                 onEdit={true}
                 onStop={true}
             />
+            </div>
         </div>
     )
 }

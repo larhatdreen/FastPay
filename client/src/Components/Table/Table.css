@@ -20,6 +20,7 @@
 table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed; /* Добавлено для равной ширины колонок */
 }
 
 th {
@@ -28,6 +29,15 @@ th {
     color: #757575;
     font-weight: 400;
     text-align: left;
+}
+
+/* Равная ширина для всех td, кроме .actions */
+td:not(.actions) {
+    width: calc(100% / var(--columns-count)); /* Равная ширина */
+}
+
+td.actions {
+    width: auto; /* Автоматическая ширина для actions */
 }
 
 tbody tr {
@@ -42,11 +52,8 @@ tbody tr:last-child {
 
 .row {
     height: 64px;
+    width: 100%;
 }
-
-/* .row:first-child {
-    border-bottom: 1px solid #ddd;
-} */
 
 .clickable-row:hover {
     background-color: #f5f5f5;

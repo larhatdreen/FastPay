@@ -1,17 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Profile.css';
+import { useNavigate } from 'react-router-dom';
+
 import Button from '../../Components/Buttons/Button';
 import IconWrapper from '../../Components/IconWrapper/IconWrapper';
 import Search from '../../Components/Search/Search';
+
+
 import arrow from '../../Assets/svg/arrowChange.svg';
 import logOut from '../../Assets/svg/logOut.svg';
 
-export default function Profile({ data = true, windowWidth }) {
+export default function Profile({ data = true, windowWidth, setIsAuthenticated }) {
     const [open, setOpen] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
     const [time, setTime] = useState('(+3:00 UTC) Moscow');
     const [selectedTimeZone, setSelectedTimeZone] = useState('Europe/Moscow');
     const timeZonesRef = useRef(null);
+    const navigate = useNavigate();
 
     // Список часовых поясов с городами и смещением UTC
     const timeZones = [
@@ -90,6 +95,14 @@ export default function Profile({ data = true, windowWidth }) {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [open]);
+
+    const handleLogOut = () => {
+        localStorage.removeItem('fp_secretKey');
+        localStorage.removeItem('fp_token');
+        localStorage.removeItem('fp_type');
+        setIsAuthenticated(false)
+        navigate('/login') 
+    }
 
     return (
         <div className='progilePage'>
@@ -176,7 +189,7 @@ export default function Profile({ data = true, windowWidth }) {
                     </div>
                 </div>
             </div>
-            <Button type={'white'} style={{ width: 'fit-content' }} onClick={''}>
+            <Button type={'white'} style={{ width: 'fit-content' }} onClick={handleLogOut}>
                 <img src={logOut} alt="Иконка выхода из профиля" />
                 <p>Выйти из профиля</p>
             </Button>
