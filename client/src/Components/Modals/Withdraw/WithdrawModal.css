@@ -1,0 +1,287 @@
+.withdrawOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.withdrawModal {
+    background: #fff;
+    box-shadow: 0px 4px 12px 0px #00000014;
+    padding: 40px 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 60vw;
+}
+
+.withdrawTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.withdrawTitle h1 {
+    color: #2B2B2A;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.withdrawTitle p {
+    color: #757575;
+    font-size: 24px;
+    line-height: 25px;
+}
+
+.withdrawWallet {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.withdrawWallet h4 {
+    background: linear-gradient(190deg, #FF7700 85%, #E10CFF 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.withdrawText {
+    color: #2B2B2A;
+    font-size: 24px;
+    line-height: 26px;
+}
+
+.valueContainer {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #A0A0A0;
+    background: #F6F6FA;
+    border-radius: 16px;
+    padding: 15px 20px;
+    align-items: center;
+}
+
+.valueText {
+    color: #757575;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 17px;
+}
+
+.sumForwithdraw {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+.selectWD {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #A0A0A0;
+    border-radius: 16px;
+    padding: 15px 20px;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+}
+
+.inputWD {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #A0A0A0;
+    border-radius: 16px;
+    transition: all 150ms ease-in-out;
+}
+
+.inputWD input {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2B2B2A;
+    padding: 10.5px 20px 10.5px 20px;
+    width: 100%;
+}
+
+.inputWD input[type="number"] {
+    -moz-appearance: textfield; /* Для Firefox */
+    appearance: textfield; /* Для других браузеров */
+}
+
+.inputWD input[type="number"]::-webkit-inner-spin-button,
+.inputWD input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.usdtContainer {
+    padding-right: 20px;
+}
+
+.selectWD:hover {
+    background: rgb(0, 0, 0, 0.1);
+}
+
+.selectWD.active {
+    cursor: default;
+    background: #F6F6FA;
+}
+
+.selectWD p {
+    color: #757575;
+    transition: all 150ms ease-in-out;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 17px;
+}
+
+.qrContainer {
+    display: flex;
+    border: 1px solid #A0A0A0;
+    padding: 20px;
+    border-radius: 16px;
+    width: fit-content;
+}
+
+.withdrawTextWarning {
+    font-size: 14px;
+    color: #757575;
+    line-height: 17px;
+}
+
+.withdrawButtons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.usdtContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2B2B2A;
+}
+
+.warning {
+    font-size: 14px;
+    line-height: 13px;
+    color: #EB001B;
+}
+
+.dataCorrect {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.dataCorrect p {
+    font-size: 24px;
+    color: #2B2B2A;
+    line-height: 17px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.inputWallet input {
+    font-weight: 400;
+}
+
+@media screen and (max-width: 1200px) {
+    .withdrawModal {
+        padding: 30px;
+        gap: 25px;
+    }
+    .withdrawTitle {
+        gap: 15px;
+    }
+    .withdrawTitle h1 {
+        font-size: 32px;
+    }
+    .withdrawTitle p {
+        font-size: 18px;
+    }
+    .withdrawWallet {
+        gap: 5px;
+    }
+    .withdrawText {
+        font-size: 18px;
+    }
+    .valueText {
+        font-size: 18px;
+    }
+    .sumForWithdraw {
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .withdrawModal {
+        gap: 8px;
+        border-radius: 10px;
+        width: 80vw;
+    }
+    .withdrawTitle {
+        gap: 2px;
+    }
+    .withdrawTitle h1 {
+        font-size: 24px;
+    }
+    .withdrawTitle p {
+        font-size: 14px;
+    }
+    .withdrawWallet {
+        gap: 2px;
+    }
+    .withdrawText {
+        font-size: 14px;
+    }
+    .valueText {
+        font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .sumForWithdraw {
+        gap: 2px;
+    }
+    .valueContainer {
+        padding: 12px 16px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .withdrawModal {
+        position: absolute;
+        top: 10px;
+    }
+}
+
+@media screen and (max-width: 578px) {
+    .withdrawTextWarning {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .withdrawOverlay {
+        overflow: auto;
+    }
+    .withdrawModal {
+        top: 0;
+    }
+}

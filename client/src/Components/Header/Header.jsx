@@ -31,7 +31,7 @@ const BurgerIcon = ({ isOpen, onClick }) => {
 };
 
 const Header = ({ windowWidth }) => {
-  const userType = 'admin';
+  const userType = localStorage.getItem('fp_type');
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const [isAnimated, setIsAnimated] = useState(false);
@@ -103,7 +103,7 @@ const Header = ({ windowWidth }) => {
   return (
     <div className="headerContainer">
       <div className={`header ${open ? 'open' : ''}`} ref={headerRef}>
-        <Link to="/dashboard" className="logoLink">
+        <Link to={localStorage.getItem('fp_type') === 'Merchant' ? '/profit' : '/dashboard'} className="logoLink">
           <img src={logo} alt="Логотип FastPay в хедере" className="logo" />
         </Link>
         {windowWidth >= 1750 && (
@@ -111,9 +111,9 @@ const Header = ({ windowWidth }) => {
         )}
         <div className="rightSideHeader">
           {windowWidth > 576 && (
-            <Link className="profileInfoHeader" to='/profile'>
+            <Link className="profileInfoHeader" to='/profile' >
               <p className={location.pathname === '/profile' ? 'active' : ''}>Профиль</p>
-              <IconWrapper height={location.pathname === '/profile' ? '24px' : '36px'}>
+              <IconWrapper height='36px'>
                 <img src={location.pathname === '/profile' ? profileColor : profile} alt="Иконка профиля в хедере" />
               </IconWrapper>
             </Link>

@@ -4,8 +4,10 @@ import './Dashboard.css'
 import Button from '../../Components/Buttons/Button'
 import CalendarModal from '../../Components/Modals/Calendar/CalendarModal'
 import TopUpModal from '../../Components/Modals/TopUp/TopUpModal'
+import WithdrawModal from '../../Components/Modals/Withdraw/WithdrawModal'
 import PayinAndPayout from '../../Components/Payin&Payout/PayinAndPayout'
 import Balance from '../../Components/Balance/Balance'
+import DisputesDashboard from '../../Components/DisputesDashboard/DisputesDashboard'
 
 import topUp from '../../Assets/svg/topUp.svg'
 import withdraw from '../../Assets/svg/withdraw.svg'
@@ -43,10 +45,18 @@ export default function Dashboard({ windowWidth }) {
     setShowTopUp(!showTopUp);
   };
 
+  // Модальное окно вывода стредств
+  const [showWithdraw, setShowWithdraw] = useState(false)
+
+  const handleWithdrawClick = () => {
+    setShowWithdraw(!showWithdraw);
+  }
+
   return (
     <div className='dashboard'>
       {showCalendar && <CalendarModal onClose={handleCalendarClick} onApply={handleCalendarApply} />}
       {showTopUp && <TopUpModal windowWidth={windowWidth} onClose={handleTopUpClick} />}
+      {showWithdraw && <WithdrawModal windowWidth={windowWidth} onClose={handleWithdrawClick} />}
       <div className="leftSideDashboard">
         <div className="buttonsDashboard">
           <div className="buttonsCollective">
@@ -63,7 +73,7 @@ export default function Dashboard({ windowWidth }) {
               type={'white'}
               style={{ width: `${windowWidth <= 650 ? '100%' : 'auto'}` }}
               rl={16}
-              onClick={''}
+              onClick={handleWithdrawClick}
             >
               <img src={withdraw} alt="Иконка Вывода" />
               <p style={{ color: '#2B2B2A', fontWeight: '400' }}>Вывести</p>
@@ -88,7 +98,7 @@ export default function Dashboard({ windowWidth }) {
       </div>
       <div className="rightSideDashboard">
         <Balance />
-        <Balance />
+        <DisputesDashboard />
       </div>
     </div>
   )

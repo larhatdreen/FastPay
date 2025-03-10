@@ -44,8 +44,8 @@ export default function Login({ onLogin }) {
           placeholder='Код 2fa'
         />
         {error && <p className='error' style={{color: 'red'}}>{error}</p>}
-        <Button type={'colored'} tb={10} rl={16} isLoading={isLoading}>
-          <p style={{fontSize: '32px'}}>Войти</p>
+        <Button type={'colored'} tb={10} rl={16} isLoading={isLoading} onClick={handleSubmit}>
+          <p className='textInLogin'>Войти</p>
         </Button>
       </form>
     </div>

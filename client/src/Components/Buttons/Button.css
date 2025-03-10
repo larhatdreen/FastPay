@@ -17,6 +17,10 @@
     transition: all 150ms ease-in-out;
 }
 
+.standarts:disabled {
+    cursor: not-allowed;
+}
+
 .colored {
     background: linear-gradient(185.4deg, #FF7700 6.42%, #E10CFF 93.77%);
 }

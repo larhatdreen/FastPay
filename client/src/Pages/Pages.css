@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    padding-bottom: 40px;
+    flex: 1;
 }
 
 .buttonsContainer {
@@ -19,4 +21,255 @@
 
 .tableWithBtn {
     position: relative;
+    flex: 1;
+    display: flex;
+}
+
+.merchantInfo {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.merchantBalance {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0px 4px 12px 0px #00000014;
+}
+
+.merchantInfo h4 {
+    font-weight: 400;
+    color: #757575;
+    font-size: 18px;
+}
+
+.merchantRow {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.merchantRow h3 {
+    color: #2B2B2A;
+    font-size: 32px;
+}
+
+.merchantRow p {
+    font-size: 24px;
+    color: #757575;
+}
+
+.merchantRow:first-child {
+    border-bottom: 1px solid #A0A0A0;
+    padding-bottom: 30px;
+}
+
+.nameRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cardAdd {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.tooltip {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    background: #F6F6FA;
+    border-radius: 10px;
+    border: 1px solid #A0A0A0;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 3;
+}
+
+.tooltip p {
+    font-size: 12px;
+    line-height: 9px;
+    color: #757575;
+}
+
+.tooltip h3 {
+    font-size: 16px;
+    line-height: 12px;
+    color: #2B2B2A;
+}
+
+.tooltip-visible {
+    opacity: 1;
+    pointer-events: auto;
+    animation: fadeInOut 3s forwards ease-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.triangle {
+    position: absolute;
+    top: 21px; 
+    right: -8px; 
+    width: 14px;
+    height: 17px;
+    background: #F6F6FA;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+    z-index: 0;
+}
+
+.triangleGrey {
+    position: absolute;
+    top: 23.5px; 
+    right: -10px; 
+    width: 10px;
+    height: 12px;
+    background: #A0A0A0;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+    z-index: -1;
+}
+
+.linkToStat {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    box-shadow: 0px 4px 12px 0px #00000014;
+    border-radius: 30px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.linkToStat h2 {
+    color: #2B2B2A;
+    font-size: 42px;
+    font-weight: 600;
+}
+
+.statisticsProfitRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #A0A0A0;
+}
+
+.statisticsProfitRow:first-child {
+    padding-top: 0;
+}
+
+.statTitle {
+    color: #757575;
+    font-size: 24px;
+    width: 100%;
+}
+
+.statWithBtn {
+    position: relative;
+}
+
+.statNumber {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.method {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.statNumber .statTitle, .method .statTitle {
+    color: #2B2B2A;
+    font-weight: 600;
+    font-size: 18px;
+    width: fit-content;
+}
+
+.statProcent {
+    font-size: 14px;
+    color: #757575;
+}
+
+@media screen and (max-width: 1800px) {
+    .merchantInfo {
+        flex-direction: row-reverse;
+        width: 100%;
+    }
+    .merchantBalance {
+        width: 50%;
+    }
+    .linkToStat {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .merchantRow p {
+        font-size: 18px;
+    }
+    .merchantInfo h4 {
+        font-size: 14px;
+    }
+    .statTitle {
+        font-size: 18px;
+    }
+    .linkToStat h2 {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .merchantInfo {
+        flex-direction: column;
+    }
+    .merchantBalance {
+        width: auto;
+    }
+    .linkToStat {
+        width: auto;
+    }
+    .merchantRow:first-child {
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .merchantRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .merchantInfo h4 {
+        font-size: 12px;
+    }
 }

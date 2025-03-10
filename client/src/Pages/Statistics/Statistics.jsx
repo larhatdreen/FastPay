@@ -38,15 +38,27 @@ export default function Statistics() {
     ];
 
     const columns = [
-        { header: 'Транзакция', component: ({ data }) => <Row title={data} usdt={true} /> },
-        { header: 'сумма', component: ({ data }) => <span>{data}</span> },
-        { header: 'Суточный лимит', component: ({ data }) => <progress value={data} max="100000" /> },
-        { header: 'адрес', component: ({ data }) => <span>{data}</span> },
+        {
+            header: 'Сделка',
+            component: ({ data }) => (
+                <Row
+                    title={''}
+                />
+            ),
+        },
+        {
+            header: 'Сумма',
+            component: ({ data }) => <Row />,
+        },
+        {
+            header: 'Карта',
+            component: ({ data }) => <Row />, // Предполагаем статичный статус
+        },
     ];
 
     return (
         <div className='page'>
-            <Button type={'white'} style={{width: 'fit-content'}} className={'forPages'} rl={16}>
+            <Button type={'white'} style={{ width: 'fit-content' }} className={'forPages'} rl={16}>
                 <img src={calendar} alt="Иконка календаря в финансах" />
                 <p>Выберите даты</p>
             </Button>
@@ -54,10 +66,17 @@ export default function Statistics() {
                 title={'Статистика'}
                 columns={columns}
                 data={data}
-                onRowClick={true}
-                onEdit={true}
-                onStop={true}
+                // itemsPerPage={}
+                onRowClick={false}
+                onEdit={false}
+                onStop={false}
             />
+            <div className="statWithBtn">
+                <Button type={'white'} style={{ width: 'fit-content', position: 'absolute', top: 30, right: 30 }} className={'forPages'} rl={16}>
+                    <img src={calendar} alt="Иконка вывода прибыли белая" />
+                    <p style={{ fontWeight: 600 }}>Выберите дату</p>
+                </Button>
+            </div>
         </div>
     )
 }

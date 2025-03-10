@@ -1,6 +1,5 @@
 .loginPage {
     background: #F6F6FA;
-    width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -27,4 +26,36 @@
     color: #757575;
     font-weight: 500;
     border: 1px solid #A0A0A0;
+}
+
+.textInLogin {
+    font-size: 32px;
+}
+
+@media screen and (max-width: 1400px) {
+    .loginInput, .textInLogin {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .loginForm {
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .loginForm {
+        width: 70vw;
+        gap: 10px;
+    }
+    .loginInput, .textInLogin {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .loginInput, .textInLogin {
+        font-size: 14px;
+    }
 }

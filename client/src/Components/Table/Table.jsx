@@ -8,14 +8,16 @@ import pause from '../../Assets/svg/pause.svg';
 const Table = ({
     title,
     columns,
-    data = [], // Data for the current page from the API
-    totalCount = 0, // Total number of items across all pages
+    data = [],
+    totalCount = 0,
     onRowClick,
-    itemsPerPage = 5, // Items per page (for calculating totalPages)
+    itemsPerPage = 5,
     onEdit,
     onStop,
     currentPage,
     setCurrentPage,
+    isLoading,
+    className
 }) => {
     const [stopRequisite, setStopRequisite] = useState(false);
 
@@ -29,8 +31,26 @@ const Table = ({
 
     const renderPagination = () => {
         const pageButtons = [];
-        const totalPagesToShow = 5;
-        for (let i = 1; i <= Math.min(totalPagesToShow, totalPages); i++) {
+        const pagesAround = 2;
+
+        pageButtons.push(
+            <button
+                key={1}
+                onClick={() => handlePageChange(1)}
+                className={`paginationBtn ${currentPage === 1 ? 'active' : ''}`}
+            >
+                1
+            </button>
+        );
+
+        let startPage = Math.max(2, currentPage - pagesAround);
+        let endPage = Math.min(totalPages - 1, currentPage + pagesAround);
+
+        if (startPage > 2) {
+            pageButtons.push(<span key="ellipsis-start" className="ellipsis">...</span>);
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
             pageButtons.push(
                 <button
                     key={i}
@@ -41,10 +61,12 @@ const Table = ({
                 </button>
             );
         }
-        if (totalPages > totalPagesToShow + 1) {
-            pageButtons.push(<span key="ellipsis" className="ellipsis">...</span>);
+
+        if (endPage < totalPages - 1) {
+            pageButtons.push(<span key="ellipsis-end" className="ellipsis">...</span>);
         }
-        if (totalPages > totalPagesToShow) {
+
+        if (totalPages > 1) {
             pageButtons.push(
                 <button
                     key={totalPages}
@@ -55,6 +77,7 @@ const Table = ({
                 </button>
             );
         }
+
         return (
             <div className="pagination">
                 <button
@@ -85,8 +108,9 @@ const Table = ({
     };
 
     return (
-        <div className="universal-table">
-            <h1>{title}</h1>
+        <div className={`universal-table ${className}`}>
+            {!className && <h1>{title}</h1>}
+            <div style={{overflow: 'auto', paddingBottom: '25px'}}>
             <table style={{ '--columns-count': columns.length }}>
                 <thead>
                     <tr>
@@ -97,43 +121,52 @@ const Table = ({
                     </tr>
                 </thead>
                 <tbody className="tableBody">
-                    {data.map((row, rowIndex) => ( // Use data directly
-                        <tr
-                            key={rowIndex}
-                            onClick={() => onRowClick && handleRowClick(row)}
-                            className={`row ${onRowClick ? 'clickable-row' : ''}`}
-                        >
-                            {columns.map((col, colIndex) => (
-                                <td key={colIndex}>{col.component({ data: row })}</td>
-                            ))}
-                            {(onEdit || onStop) && (
-                                <td className="actions">
-                                    {onEdit && (
-                                        <img
-                                            src={edit}
-                                            alt="Иконка редактирования данных"
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                handleEdit(row);
-                                            }}
-                                        />
-                                    )}
-                                    {onStop && (
-                                        <img
-                                            src={stopRequisite ? pause : resume}
-                                            alt="Иконка возобновления или паузы работы реквизитов"
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                setStopRequisite(!stopRequisite);
-                                            }}
-                                        />
-                                    )}
-                                </td>
-                            )}
+                    {data.length < 1 ? (
+                        <tr>
+                            <td colSpan={columns.length + (onEdit || onStop ? 1 : 0)}>
+                                <div className="nullResult">{!isLoading && 'Данные отсутствуют'}</div>
+                            </td>
                         </tr>
-                    ))}
+                    ) : (
+                        data.map((row, rowIndex) => (
+                            <tr
+                                key={rowIndex}
+                                onClick={() => onRowClick && handleRowClick(row)}
+                                className={`row ${onRowClick ? 'clickable-row' : ''}`}
+                            >
+                                {columns.map((col, colIndex) => (
+                                    <td key={colIndex}>{col.component({ data: row })}</td>
+                                ))}
+                                {(onEdit || onStop) && (
+                                    <td className="actions">
+                                        {onEdit && (
+                                            <img
+                                                src={edit}
+                                                alt="Иконка редактирования данных"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    handleEdit(row);
+                                                }}
+                                            />
+                                        )}
+                                        {onStop && (
+                                            <img
+                                                src={stopRequisite ? pause : resume}
+                                                alt="Иконка возобновления или паузы работы реквизитов"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setStopRequisite(!stopRequisite);
+                                                }}
+                                            />
+                                        )}
+                                    </td>
+                                )}
+                            </tr>
+                        ))
+                    )}
                 </tbody>
             </table>
+            </div>
             {totalPages > 1 && renderPagination()}
         </div>
     );

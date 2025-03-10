@@ -2,21 +2,7 @@ import React from 'react'
 import './Button.css'
 import Loader from '../Loader/Loader'
 
-export default function Button({ type, children, style: propStyle, className, onClick, tb = 10, rl = 10, isLoading }) {
-  // const [isLoading, setIsLoading] = useState(false);
-
-  // const handleClick = async () => {
-  //   if (onClick) {
-  //     setIsLoading(true); 
-  //     try {
-  //       await onClick(); 
-  //     } catch (err) {
-  //       console.error('Ошибка:', err);
-  //     } finally {
-  //       setIsLoading(false); 
-  //     }
-  //   }
-  // };
+export default function Button({ type, children, style: propStyle, className, onClick, tb = 10, rl = 10, isLoading, disabled }) {
 
   const fullStyle = {
     ...propStyle,
@@ -25,7 +11,9 @@ export default function Button({ type, children, style: propStyle, className, on
   return (
     <>
     <button
+      disabled={disabled}
       id='button-target'
+      type='button'
       onClick={onClick}
       style={fullStyle}
       className={`standarts ${type === 'colored' ? 'colored' : type === 'white' ? 'white' : ''} ${className}`}

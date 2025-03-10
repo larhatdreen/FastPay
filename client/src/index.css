@@ -30,3 +30,7 @@ input {
 input:focus {
   outline: none;
 }
+
+img {
+  pointer-events: none;
+}

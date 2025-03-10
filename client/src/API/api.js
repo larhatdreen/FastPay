@@ -2,6 +2,16 @@
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
 
+/**
+ * Универсальная функция для выполнения API-запросов
+ * @param {Object} options - Конфигурация запроса
+ * @param {string} options.url - URL-адрес запроса
+ * @param {string} [options.method='GET'] - Метод запроса (GET, POST и т.д.)
+ * @param {Object} [options.data] - Тело запроса (для POST)
+ * @param {Object} [options.params] - Параметры запроса (для GET, например, page)
+ * @returns {Promise<any>} - Данные ответа
+ */
+
 // Функция для генерации заголовков авторизации
 export const AuthHeader = async () => {
     try {
@@ -63,6 +73,7 @@ export const requestOfficeToken = async ({ secretKey, code, onLogin, setIsLoadin
             localStorage.setItem('fp_type', type);
             onLogin();
             console.log('Успешный вход');
+            navigate(type === 'Merchant' ? '/profit' : '/dashboard');
             return response.data;
         } else {
             throw new Error('Неверный ключ или код');
@@ -71,41 +82,44 @@ export const requestOfficeToken = async ({ secretKey, code, onLogin, setIsLoadin
         console.error('Ошибка при запросе:', error);
         throw error;
     } finally {
-        setIsLoading(false);
-        navigate('/dashboard'); // Перенаправление на /dashboard
+        setIsLoading(false); 
     }
 };
 
-// Получение данных о платежах
-export const financeData = async ({ page = 1 } = {}) => {
-    // setIsLoading(true);
-    const { auth, timestamp, token, type } = await AuthHeader();
+export const fetchApi = async ({
+    url,
+    method = 'GET',
+    data = {},
+    params = {},
+  } = {}) => {
     try {
-        const url = `/api/v1/dashboard/finance?page=${page}`;
-
-        const response = await axios.get(url, {
-            headers: {
-                "FP-Authorization": auth,
-                "FP-Timestamp": timestamp,
-                "FP-Token": token,
-                "FP-Type": type,
-            },
-        });
-
-        console.log(response.data);
-        return response.data;
-
+      const { auth, timestamp, token, type } = await AuthHeader();
+  
+      const response = await axios({
+        method,
+        url,
+        data, // Тело запроса для POST
+        params, // Параметры для GET (например, ?page=1)
+        headers: {
+          'FP-Authorization': auth,
+          'FP-Timestamp': timestamp,
+          'FP-Token': token,
+          'FP-Type': type,
+          ...(method === 'POST' && { 'Content-Type': 'application/json' }), // Добавляем Content-Type только для POST
+        },
+      });
+  
+      console.log(response.data);
+      return response.data;
     } catch (error) {
-        console.error('Ошибка:', error);
-        throw error;
-    } finally {
-        // setIsLoading(false);
+      console.error('Ошибка:', error);
+      throw error;
     }
-};
+  };
+
 
 // Добавление устройства
-export const handleAddDevice = async ({ setIsLoading, nameDevice }) => {
-    setIsLoading(true);
+export const handleAddDevice = async ({ nameDevice }) => {
     try {
         const { auth, timestamp, token, type } = await AuthHeader();
 
@@ -130,42 +144,5 @@ export const handleAddDevice = async ({ setIsLoading, nameDevice }) => {
     } catch (error) {
         console.error('Ошибка:', error);
         throw error;
-    } finally {
-        setIsLoading(false);
-    }
-};
-
-// Получение данных о спорах
-export const disputeData = async ({ setIsLoading, page = 1 } = {}) => {
-    setIsLoading(true);
-    try {
-        const { auth, timestamp, token, type } = await AuthHeader();
-        let url = `/api/v1/dashboard/dispute?page=${page}`;
-        // Раскомментируйте и настройте фильтры при необходимости
-        // if (filterStatus) {
-        //     url += `&status=${filterStatus}`;
-        // }
-        // if (searchData) {
-        //     url += `&card=${searchData}`;
-        // }
-
-        const response = await axios.get(url, {
-            headers: {
-                "FP-Authorization": auth,
-                "FP-Timestamp": timestamp,
-                "FP-Token": token,
-                "FP-Type": type,
-            },
-        });
-
-        const data = response.data;
-        console.log(data);
-        return data;
-
-    } catch (error) {
-        console.error('Ошибка:', error);
-        throw error;
-    } finally {
-        setIsLoading(false);
     }
 };

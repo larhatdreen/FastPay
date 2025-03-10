@@ -1,14 +1,20 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import '../Pages.css'
+import { fetchApi } from '../../API/api'
+import { formattedDate } from '../../utils/formatingDate'
 
 import Table from '../../Components/Table/Table'
 import Row from '../../Components/Table/Row'
 import CalendarModal from '../../Components/Modals/Calendar/CalendarModal'
 import Button from '../../Components/Buttons/Button'
 import Search from '../../Components/Search/Search'
+import Loader from '../../Components/Loader/Loader'
 
 import calendar from '../../Assets/svg/calendarGrey.svg'
 import arrow from '../../Assets/svg/arrowChange.svg'
+import waiting from '../../Assets/row/waiting.svg'
+import accept from '../../Assets/row/cardPlus.svg'
+import cancel from '../../Assets/row/cardRemove.svg'
 
 export default function Transactions() {
     const [tranState, setTranState] = useState('Все')
@@ -17,6 +23,9 @@ export default function Transactions() {
     const [sumSecond, setSumSecond] = useState(null)
     const [showCalendar, setShowCalendar] = useState(false);
     const [date, setDate] = useState('Все время')
+    const [currentPage, setCurrentPage] = useState(1);
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleCalendarApply = (range) => {
         if (!range?.start) return;
@@ -39,40 +48,67 @@ export default function Transactions() {
         setShowCalendar(!showCalendar);
     };
 
-    const data = [
-        { транзакция: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        { пользователь: 'Фетинин Никита Геннадьевич', сумма: '533', статус: 5, адрес: '58% 22/38' },
-        // Дополнительные данные...
-    ];
+    useEffect(() => {
+        const fetchDisputeData = async () => {
+            setLoading(true);
+            try {
+                const result = await fetchApi({
+                    url: `/api/v1/dashboard/payment`,
+                    params: { page: currentPage },
+                });
+                setData(result);
+            } catch (error) {
+                console.error('Ошибка при загрузке данных:', error);
+                // setError(error.message || 'Не удалось загрузить данные');
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchDisputeData();
+    }, [currentPage]);
 
     const columns = [
-        { header: 'Транзакция', component: ({ data }) => <Row title={data} usdt={true} /> },
-        { header: 'сумма', component: ({ data }) => <span>{data}</span> },
-        { header: 'Суточный лимит', component: ({ data }) => <progress value={data} max="100000" /> },
-        { header: 'адрес', component: ({ data }) => <span>{data}</span> },
+        {
+            header: 'Статус спора',
+            component: ({ data }) => (
+                <Row
+                    flex_out={'flex'}
+                    gap_out={15}
+                    icon={data.status === 'CL' ? cancel : data.status === 'AC' ? accept : waiting}
+                    title={data.status === 'CL' ? 'Сделка отклонена' : data.status === 'AC' ? 'Сделка завершена' : 'Создана новая сделка'}
+                    text={formattedDate(data.create)}
+                />
+            ),
+        },
+        {
+            header: 'Сумма',
+            component: ({ data }) => (
+                <Row
+                    usdt={true}
+                    currency={data.currency}
+                    title={data?.amount ?? 'N/A'}
+                    text={data?.amount_usdt ?? 'N/A'}
+                />
+            ),
+        },
+        {
+            header: 'Карта',
+            component: ({ data }) => (
+                <Row
+                    title={data.card.phone_number ? data.card.phone_number : data.card.card_number}
+                    text={`${data.card.bank}${data?.type ? ` - ${data.type}` : ''}`}
+                />
+            )
+        },
+        {
+            header: 'Устройство',
+            component: ({ data }) => (
+                <Row
+                    title={data.device.name}
+                    text={data.device.token}
+                />
+            )
+        },
     ];
 
     return (
@@ -82,12 +118,12 @@ export default function Transactions() {
                 <Search className='pagesSearch' />
                 <Button
                     type={'white'}
-                    style={{width: 'auto'}}
+                    style={{ width: 'auto' }}
                     tb={showCalendar ? 9 : 10}
                     rl={showCalendar ? 15 : 16}
                     onClick={() => setShowTranStates(!showTranStates)}
                 >
-                    <img src={arrow} alt="Иконка вывода модалки" style={{transform: 'rotate(180deg)'}} />
+                    <img src={arrow} alt="Иконка вывода модалки" style={{ transform: 'rotate(180deg)' }} />
                     <span style={{ color: '#2B2B2A', fontWeight: showCalendar ? '700' : '400' }}>{tranState}</span>
                     <div className='btnModal'>
                         {/* <span>Все</span>
@@ -96,7 +132,7 @@ export default function Transactions() {
                 </Button>
                 <Button
                     type={'white'}
-                    style={{width: 'auto'}}
+                    style={{ width: 'auto' }}
                     tb={showCalendar ? 9 : 10}
                     rl={showCalendar ? 15 : 16}
                     onClick={handleCalendarClick}
@@ -108,7 +144,7 @@ export default function Transactions() {
                 </Button>
                 <Button
                     type={'white'}
-                    style={{width: 'auto'}}
+                    style={{ width: 'auto' }}
                     tb={showCalendar ? 9 : 10}
                     rl={showCalendar ? 15 : 16}
                     onClick={handleCalendarClick}
@@ -117,14 +153,22 @@ export default function Transactions() {
                     <span style={{ color: '#2B2B2A', fontWeight: showCalendar ? '700' : '400' }}>{date}</span>
                 </Button>
             </div>
-            <Table
-                title={'Сделки'}
-                columns={columns}
-                data={data}
-                onRowClick={true}
-                onEdit={true}
-                onStop={true}
-            />
+            <div className="tableTransactions" id='tableTran'>
+                <Table
+                    title={'Сделки'}
+                    columns={columns}
+                    data={data?.results || []}
+                    totalCount={data?.count || 0}
+                    itemsPerPage={10}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    isLoading={loading}
+                    onRowClick={true}
+                    onEdit={false}
+                    onStop={false}
+                />
+                <Loader isLoading={loading} targetId='tableTran' />
+            </div>
         </div>
     )
 }

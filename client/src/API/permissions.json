@@ -1,22 +1,24 @@
 {
-  "office": {
+  "Office": {
     "links": [
       { "key": "dashboard", "name": "Дашборд" },
       { "key": "finance", "name": "Финансы" },
       { "key": "transactions", "name": "Сделки" },
-      { "key": "applications", "name": "Заявки" },
+
       { "key": "disputes", "name": "Споры" },
       { "key": "details", "name": "Реквизиты" },
       { "key": "devices", "name": "Устройства" },
+      { "key": "profit", "name": "Прибыль" },
+      { "key": "statistics", "name": "Статистика" },
       { "key": "profile", "name": "Профиль" }
     ]
   },
-  "admin": {
+  "Admin": {
     "links": [
       { "key": "dashboard", "name": "Дашборд" },
       { "key": "finance", "name": "Финансы" },
       { "key": "transactions", "name": "Сделки" },
-      { "key": "applications", "name": "Заявки" },
+
       { "key": "disputes", "name": "Споры" },
       { "key": "details", "name": "Реквизиты" },
       { "key": "devices", "name": "Устройства" },
@@ -25,18 +27,14 @@
       { "key": "profile", "name": "Профиль" }
     ]
   },
-  "merchant": {
+  "Merchant": {
     "links": [
-      { "key": "dashboard", "name": "Дашборд" },
-      { "key": "finance", "name": "Финансы" },
-      { "key": "transactions", "name": "Сделки" },
       { "key": "disputes", "name": "Споры" },
       { "key": "profit", "name": "Прибыль" },
-      { "key": "statistics", "name": "Статистика" },
       { "key": "profile", "name": "Профиль" }
     ]
   },
-  "support": {
+  "Support": {
     "links": [
       { "key": "dashboard", "name": "Дашборд" },
       { "key": "transactions", "name": "Сделки" },
